@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Stats Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Button to generate stats -->
+        <button class="generate-btn" onclick="calculateGA()">Generate Stats</button>
+        <button class="reset-btn" onclick="resetStats()">Reset Stats</button>
+
+        <!-- Display results here -->
+        <div class="stats">
+            <div class="debut">
+                <h2 class="debut-club">Debut Club</h2>
+                <p class="debut-matches">Matches: <span id="debut-matches">100</span></p>
+                <p class="debut-goals">Goals: <span id="debut-goals">10</span></p>
+                <p class="debut-assists">Assists: <span id="debut-assists">5</span></p>
+            </div>
+            
+            <div class="prime">
+                <h2 class="prime-club">Prime Club</h2>
+                <p class="prime-matches">Matches: <span id="prime-matches">150</span></p>
+                <p class="prime-goals">Goals: <span id="prime-goals">20</span></p>
+                <p class="prime-assists">Assists: <span id="prime-assists">15</span></p>
+            </div>
+
+            <div class="retirement">
+                <h2 class="retirement-club">Retirement Club</h2>
+                <p class="retirement-matches">Matches: <span id="retirement-matches">50</span></p>
+                <p class="retirement-goals">Goals: <span id="retirement-goals">5</span></p>
+                <p class="retirement-assists">Assists: <span id="retirement-assists">3</span></p>
+            </div>
+        </div>
+
+        <!-- Combined Goals/Assists and Career Milestone -->
+        <div class="results">
+            <h3>Your Career</h3>
+            <p id="final-result"></p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
