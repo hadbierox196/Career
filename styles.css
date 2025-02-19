@@ -20,7 +20,7 @@ body {
 .generate-btn,
 .reset-btn {
     padding: 7px 15px;
-    font-size: 10px;
+    font-size: 20px;
     background-color: #edb940;
     border: none;
     color: black;
@@ -103,5 +103,5 @@ p {
 }
 
 .number-flash {
-    animation: flash 0.1s steps(1, end) infinite;
+    animation: flash 0.01s steps(2, end) infinite;
 }
