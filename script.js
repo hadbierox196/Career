@@ -1,20 +1,20 @@
 document.addEventListener("DOMContentLoaded", function () {
-    // Typing Animation
+    // Typing Animation (Max 1 sec per phrase)
     const typingTexts = ["Total Submission To Allah's Will"];
-    const typingSpeed = 40; // Speed per letter
-    const maxTypingTime = 1000; // Max 1 second per phrase
+    const typingElement = document.getElementById("typing-text");
+    const maxTypingTime = 1000; // 1 second max
     let typingIndex = 0;
     let charIndex = 0;
-    let currentText = "";
-    let typingElement = document.getElementById("typing-text");
 
     function typeText() {
-        if (charIndex < typingTexts[typingIndex].length) {
-            currentText += typingTexts[typingIndex][charIndex];
-            typingElement.textContent = currentText;
+        if (typingIndex < typingTexts.length) {
+            let text = typingTexts[typingIndex];
+            let speed = maxTypingTime / text.length; // Adjust speed dynamically
+            typingElement.textContent = text.substring(0, charIndex + 1);
             charIndex++;
-            let speed = Math.max(typingSpeed, maxTypingTime / typingTexts[typingIndex].length);
-            setTimeout(typeText, speed);
+            if (charIndex < text.length) {
+                setTimeout(typeText, speed);
+            }
         }
     }
     typeText();
@@ -22,7 +22,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // Scroll Animations
     const scrollElements = document.querySelectorAll(".scroll-effect");
     const observer = new IntersectionObserver(
-        (entries, observer) => {
+        (entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("show");
@@ -35,35 +35,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
     scrollElements.forEach(el => observer.observe(el));
 
-    // Number Count Animations
-    function animateStats(selector, finalValue, callback) {
-        const element = document.querySelector(selector);
-        element.classList.add("number-flash");
+    // Number Count Animations (Fast & Smooth)
+    function animateStats(element, finalValue) {
         let currentNumber = 0;
-        const intervalSpeed = Math.max(50, 1000 / finalValue); // Max 1 second per number
-
-        const interval = setInterval(() => {
+        let increment = Math.ceil(finalValue / 50); // Adjust for smooth animation
+        let interval = setInterval(() => {
             element.textContent = currentNumber;
-            currentNumber++;
-            if (currentNumber > finalValue) {
-                clearInterval(interval);
+            currentNumber += increment;
+            if (currentNumber >= finalValue) {
                 element.textContent = finalValue;
-                element.classList.remove("number-flash");
-                if (callback) callback();
+                clearInterval(interval);
             }
-        }, intervalSpeed);
+        }, 20); // Fast smooth effect
     }
 
-    // Run number animations when in view
+    // Trigger number animations when in view
     const numberElements = document.querySelectorAll(".animate-number");
     numberElements.forEach(el => {
         const finalValue = parseInt(el.getAttribute("data-value"), 10);
         if (!isNaN(finalValue)) {
             const observer = new IntersectionObserver(
-                (entries, observer) => {
+                (entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
-                            animateStats(`#${el.id}`, finalValue);
+                            animateStats(el, finalValue);
                             observer.unobserve(entry.target);
                         }
                     });
