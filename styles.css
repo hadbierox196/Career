@@ -3,7 +3,7 @@ body {
     margin: 0;
     font-family: 'Orbitron', sans-serif;
     background-color: black;
-    color: #edb940;
+    color: #ffeb3b;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,7 +21,7 @@ body {
 .reset-btn {
     padding: 7px 15px;
     font-size: 20px;
-    background-color: #edb940;
+    background-color: #ffeb3b;
     border: none;
     color: black;
     font-family: 'Orbitron', sans-serif;
@@ -33,14 +33,14 @@ body {
 
 .generate-btn:hover,
 .reset-btn:hover {
-    background-color: #e1b536;
+    background-color: #ffeb3b;
 }
 
 /* Reset button styles */
 .reset-btn {
     background-color: #333;
-    color: #edb940;
-    border: 2px solid #edb940;
+    color: #ffeb3b;
+    border: 2px solid #ffeb3b;
 }
 
 .reset-btn:hover {
@@ -54,7 +54,7 @@ body {
     padding: 15px;
     background-color: #222; /* Dark background for contrast */
     border-radius: 10px;
-    border: 2px solid #edb940; /* Highlighting border */
+    border: 2px solid #ffeb3b; /* Highlighting border */
     box-shadow: 0 0 10px rgba(237, 185, 64, 0.5); /* Glow effect */
     text-align: left;
 }
@@ -73,7 +73,7 @@ body {
 /* Headings and Results */
 h2 {
     font-size: 24px;
-    color: #edb940;
+    color: #ffeb3b;
     text-transform: uppercase;
     margin-bottom: 10px;
 }
