@@ -84,7 +84,7 @@ function animateStats(selector, finalValue, callback) {
             element.classList.remove('number-flash');
             if (callback) callback();
         }
-    }, 50); // Adjust speed of the flashing
+    }, 20); // Adjust speed of the flashing
 }
 
 function calculateGA() {
