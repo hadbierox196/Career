@@ -103,5 +103,5 @@ p {
 }
 
 .number-flash {
-    animation: flash 0.5s steps(1, end) infinite;
+    animation: flash 0.1s steps(1, end) infinite;
 }
